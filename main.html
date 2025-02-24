@@ -9,26 +9,29 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
+                	arr = arr.map(Number);
 
-			 arr = arr.map(Number);
-
-   
-           if (arr.length < 2) {
-           return -Infinity;
-            }
-			
-			let secondHeighest=-Infinity; 
-			let heighest=-Infinity;
-            for(let i=0 ; i<arr.length ; i++){
-				  if( heighest < arr[i]){
-				     secondHeighest=heighest	    
-				      heighest=num;
-				  }
-			     else if(num > secondHeighest && num<heighest){
-					  secondHeighest=num ;
-				 }
+			// If array has less than 2 elements, return -Infinity
+			if (arr.length < 2) {
+				return -Infinity;
 			}
-			return secondHeighest===-Infinity? -Infinity : secondHeighest ;
+
+			let highest = -Infinity;
+			let secondHighest = -Infinity;
+
+			// Find the highest and second highest distinct numbers
+			for (let num of arr) {
+				if (num > highest) {
+					secondHighest = highest;
+					highest = num;
+				} else if (num > secondHighest && num < highest) {
+					secondHighest = num;
+				}
+			}
+
+			// If there is no second highest number, return -Infinity
+			return secondHighest === -Infinity ? -Infinity : secondHighest;
+			
 		}
 
 		function Main() {

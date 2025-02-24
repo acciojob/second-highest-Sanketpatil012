@@ -9,24 +9,23 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-		     arr.sort((a,b) => return a-b)
 
-			if(arr.length < 2){
-				return -Infinity
-			} 
-
-			for(let i=0; i<arr.length  ; i++){
-				  if(arr[i] == arr[0]){
-					  return -Infinity
+			let secondHeighest=-Infinity; 
+			let heighest=-Infinity;
+            for(let i=0 ; i<arr.length ; i++){
+				  if( heighest < arr[i]){
+				     secondHeighest=heighest	    
+				      heighest=num;
 				  }
-			     else{
-					return arr[arr.length-2]  
+			     else if(num > secondHeighest && num<heighest){
+					  secondHeighest=num ;
 				 }
 			}
+			return secondHeighest===-Infinity? -Infinity : secondHeighest ;
 		}
 
 		function Main() {
-			var n = prompt("Enter the number of elements");
+			//var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));

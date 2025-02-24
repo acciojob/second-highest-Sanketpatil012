@@ -10,6 +10,13 @@
 	<script>
 		function secondHighest(arr) {
 
+			 arr = arr.map(Number);
+
+   
+           if (arr.length < 2) {
+           return -Infinity;
+            }
+			
 			let secondHeighest=-Infinity; 
 			let heighest=-Infinity;
             for(let i=0 ; i<arr.length ; i++){

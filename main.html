@@ -16,6 +16,7 @@
 				return -Infinity;
 			}
 
+			let allSame=true; 
 			let highest = -Infinity;
 			let secondHighest = -Infinity;
 
@@ -26,9 +27,14 @@
 					highest = num;
 				} else if (num > secondHighest && num < highest) {
 					secondHighest = num;
-				}
+				}else if(num != arr[0]){
+					allSame=false
+				} 
 			}
-
+              if(allSame){
+				   return -Infinity
+			  }
+			
 			// If there is no second highest number, return -Infinity
 			return secondHighest === -Infinity ? -Infinity : secondHighest;
 			

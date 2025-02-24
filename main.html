@@ -9,33 +9,37 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-      arr = arr.map(Number);
+    arr = arr.map(Number);
 
-			if (arr.length < 2) {
-				return -Infinity;
-			}
+    if (arr.length < 2) {
+        return -Infinity;
+    }
 
-			let allSame=true; 
-			let highest = -Infinity;
-			let secondHighest = -Infinity;
+    let allSame=true; 
+    for (let num of arr) {
+        if (num != arr[0]){
+            allSame=false;
+            break;
+        } 
+    }
+    if(allSame){
+        return -Infinity;
+    }
 
-			
-			for (let num of arr) {
-				if (num > highest) {
-					secondHighest = highest;
-					highest = num;
-				} else if (num > secondHighest && num < highest) {
-					secondHighest = num;
-				}else if(num != arr[0]){
-					allSame=false
-				} 
-			}
-              if(allSame){
-				   return -Infinity
-			  }
-			return secondHighest === -Infinity ? -Infinity : secondHighest;
-		}
+    let highest = -Infinity;
+    let secondHighest = -Infinity;
 
+    for (let num of arr) {
+        if (num > highest) {
+            secondHighest = highest;
+            highest = num;
+        } else if (num > secondHighest && num < highest) {
+            secondHighest = num;
+        }
+    }
+
+    return secondHighest === -Infinity ? -Infinity : secondHighest;
+}
 		function Main() {
 			//var n = prompt("Enter the number of elements");
 			var arr = [];
